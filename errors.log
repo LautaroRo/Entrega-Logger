@@ -1,0 +1,3 @@
+{"level":"error","message":"Error no se enviaron los parametros suficientes"}
+{"level":"error","message":"POST en /api/sessions/login - 3/6/2024"}
+{"level":"error","message":"Error no se enviaron los parametros suficientes en el login"}

@@ -1,0 +1,23 @@
+{
+  "name": "entregalogger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon src/app.js",
+    "dev": "docker run -p 3000:3000 dockeroperations"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "artillery-plugin-metrics-by-endpoint": "^1.8.0",
+    "cluster": "^0.7.7",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.1",
+    "nodemon": "^3.1.2",
+    "winston": "^3.13.0"
+  }
+}

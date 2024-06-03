@@ -1,0 +1,38 @@
+config:
+  target: "http://localhost:3000"
+  phases: 
+    - duration: 20
+      arrivalRate: 30
+  plugins: 
+    metrics-by-endpoint: {}
+
+scenarios:
+  - name: "Session Flow (register + login)"
+    flow:
+      - log: "Creation variables for user"
+      - get: 
+          url: "/api/test/user"
+          capture:
+            - json: "$.first_name"
+              as: "first_name"
+            - json: "$.last_name"
+              as: "last_name"
+            - json: "$.email"
+              as: "email"
+            - json: "$.password"
+              as: "password"
+      - log: "Register user"
+      - post:
+          url: "/api/sessions/register"
+          json:
+            first_name: "{{ first_name }}"
+            last_name: "{{ last_name }}"
+            email: "{{ email }}"
+            password: "{{ password }}"
+      - think: 2
+      - log: "Login user"
+      - post: 
+          url: "/api/sessions/login"
+          json:
+            email: "{{ email }}"
+            password: "{{ password }}"
